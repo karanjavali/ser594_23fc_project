@@ -2,8 +2,6 @@
 import requests, csv, json
 from wf_constants import GET_FOOD_URL, API_KEY, GET_FOODS_URL
 import pandas as pd
-from collections import defaultdict
-
 
 def get_data():
     food_list = []
@@ -23,7 +21,7 @@ def get_data():
     with open("./data_original/food_data_original.json", "w") as file:
         json.dump(food_list, file, indent=4)
     
-def generate_nutrition_food_object():
+def generate_nutrition_food_data():
     raw_food_data = []
     with open("./data_original/food_data_original.json", "r") as file:
         raw_food_data = json.load(file)
@@ -31,17 +29,27 @@ def generate_nutrition_food_object():
     nutrient_codes = {}
     nutrient_food_data = {}
     for food in raw_food_data:
-        obj = {}
-        obj['name'] = food['description']
-        obj['id'] = food['fdcId']
-        
+        food_name = food['description']
+        food_id = food['fdcId']
+
         for nutrient in food['foodNutrients']:
-            obj['amount'] = nutrient['amount']
-            obj['unitName'] = nutrient['unitName']
-            n = nutrient_food_data.get(nutrient['number'], [])
-            n.append(obj)
-            nutrient_codes[nutrient['number']] = nutrient['name']
-            nutrient_food_data[nutrient['number']] = n
+            nutrient_number = nutrient['number']
+            nutrient_name = nutrient['name']
+            amount = nutrient['amount']
+            unit_name = nutrient['unitName']
+
+            obj = {
+                'name': food_name,
+                'id': food_id,
+                'amount': amount,
+                'unitName': unit_name
+            }
+
+            if nutrient_number not in nutrient_food_data:
+                nutrient_food_data[nutrient_number] = []
+
+            nutrient_food_data[nutrient_number].append(obj)
+            nutrient_codes[nutrient_number] = nutrient_name
 
     with open("./data_processing/nutrient_food_data.json", "w") as file:
         json.dump(nutrient_food_data, file, indent=4)
@@ -58,10 +66,7 @@ def generate_cleaned_food_data():
     for food in raw_food_data:    
         obj = {}
         obj['name'] = food['description']
-        nutrients = food['foodNutrients']
-        for nutrient in nutrients:
-            nutrient['number'] = nutrient['number']
-        obj['nutrients'] = nutrients
+        obj['nutrients'] = food['foodNutrients']
         food_data[food['fdcId']] = obj
     
     with open("./data_processing/food_data.json", "w") as file:
@@ -70,5 +75,5 @@ def generate_cleaned_food_data():
 
 
 # get_data()
-generate_nutrition_food_object()
-generate_cleaned_food_data()
+generate_nutrition_food_data()
+# generate_cleaned_food_data()
