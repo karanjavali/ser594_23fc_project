@@ -60,6 +60,11 @@ Sources of information -
 
 **Soundness Justification:** From the csv, I am fetching fdc_ids and calling the API to fetch all the data regarding the fdc_id. I am storing the ingredient name and nutrients. I have created different jsons for storing the key value meaning as well (nutrient and food codes). I have not altered any values.
 
+### Transformation 2
+**Description:** Data Altering
+
+**Soundness Justification:** I have removed the entry of Human milk (breast milk) from the rows. In my opinion, this is not a viable ingredient.
+
 
 ## Visualization
 ### Visual 1
