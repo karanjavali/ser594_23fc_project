@@ -68,14 +68,16 @@ def generate_cleaned_food_data():
         raw_food_data = json.load(file)
     raw_food_data = raw_food_data[1:] # removing human milk
     food_data = {}
-    for food in raw_food_data:    
-        obj = {}
-        obj['name'] = food['description']
-        obj['nutrients'] = [{'number': n['number'], 'amount': n['amount']} for n in food['foodNutrients']]
-        food_data[food['fdcId']] = obj
+    food_id_name = {}
+    for food in raw_food_data:
+        food_data[food['fdcId']] = [{'number': n['number'], 'amount': n['amount']} for n in food['foodNutrients']]
+        food_id_name[food['fdcId']] = food['description']
     
     with open("./data_processed/food_data.json", "w") as file:
         json.dump(food_data, file, indent=4)
+    
+    with open("./data_processed/food_id_name.json", "w") as file:
+        json.dump(food_id_name, file, indent=4)
 
 
 
