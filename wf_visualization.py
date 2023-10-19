@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
-import numpy as np
-import json
-import sys
+import pandas as pd
+import json, sys
 
 def scatter_plot_distribution(code1, code2, number):
     with open("./data_processed/nutrient_food_data.json", "r") as file:
@@ -93,7 +92,6 @@ def plot_histogram():
     plt.figure(figsize=(25, 35)) 
     
     values = sorted(values)
-    print(values)
     plt.barh(names, values, edgecolor='black', alpha=0.7)
     plt.ylabel("Nutrient Name") 
     plt.xlabel("Occurence in ingredients") 
@@ -107,13 +105,28 @@ def plot_histogram():
     plt.savefig('visuals/hist_occurences.png')
     plt.show()
 
+def create_correlations():
+    with open("./data_processed/nutrient_food_data.json", "r") as file:
+        nutrient_data = json.load(file)
+    with open("./data_processed/nutrient_codes.json", "r") as file:
+        nutrient_codes = json.load(file)
+    
+    codes = ['203','204','205', '208']
+    features = {}
+    for c in codes:
+        features[nutrient_codes[c]] = [n['amount'] for n in nutrient_data[c]]
+    
+    df = pd.DataFrame(features)
 
+    # Calculate the correlation matrix
+    correlation_matrix = df.corr()
+    correlation_matrix.to_csv("./data_processed/correlations.txt", sep='\t')
 
 if __name__ == "__main__":
     
-    output = 'Qualitative Feature - Nutrition occurence in different ingredients\nQuantitative features - Protein content(in grams), Total Carbohydrates (in grams), Total Calories (in KCAL)\n\n'
-    nutrient_codes = ['203', '205', '208'] # Protein, Carbohydrates, Calories
-    nutrients_chosen = ['Protein', 'Carbohydrate', 'Calories']
+    output = 'Qualitative Feature - Nutrition occurence in different ingredients\nQuantitative features - Protein content(in grams), Total Carbohydrates (in grams), Total Calories (in KCAL), Total Fat (in grams)\n\n'
+    nutrient_codes = ['203', '205', '208', '204'] # Protein, Carbohydrates, Calories, Fat
+    nutrients_chosen = ['Protein', 'Carbohydrate', 'Calories', 'Fat']
     for i in range(len(nutrient_codes)):
 
         output += '\n{} content statistics\n'.format(nutrients_chosen[i])
@@ -133,7 +146,11 @@ if __name__ == "__main__":
     with open("./data_processed/summary.txt", 'w') as file:
         file.write(output)
     
+    create_correlations()
     scatter_plot_distribution('203','205', 1)
     scatter_plot_distribution('205','208', 2)
     scatter_plot_distribution('208','203', 3)
+    scatter_plot_distribution('203','204', 4)
+    scatter_plot_distribution('205','204', 5)
+    scatter_plot_distribution('208','204', 6)
     plot_histogram()

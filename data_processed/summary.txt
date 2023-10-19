@@ -1,5 +1,5 @@
 Qualitative Feature - Nutrition occurence in different ingredients
-Quantitative features - Protein content(in grams), Total Carbohydrates (in grams), Total Calories (in KCAL)
+Quantitative features - Protein content(in grams), Total Carbohydrates (in grams), Total Calories (in KCAL), Total Fat (in grams)
 
 
 Protein content statistics
@@ -16,6 +16,11 @@ Calories content statistics
 Min - 0.0 KCAL
 Max - 902 KCAL
 Median - 165 KCAL
+
+Fat content statistics
+Min - 0.0 G
+Max - 100 G
+Median - 5.8 G
 
 Nutrient occurence statistics:
  

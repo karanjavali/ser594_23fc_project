@@ -1,7 +1,10 @@
 
 import requests, csv, json
-from wf_constants import GET_FOOD_URL, API_KEY, GET_FOODS_URL
 import pandas as pd
+GET_FOOD_URL = 'https://api.nal.usda.gov/fdc/v1/food/'
+API_KEY = 'gpCPrg1Vk7TLjDQ5PrDb7glFI4nAgK3vkiIl28Rg'
+GET_FOODS_URL = 'https://api.nal.usda.gov/fdc/v1/foods'
+
 
 def get_data():
     food_list = []
@@ -9,12 +12,12 @@ def get_data():
     url = GET_FOODS_URL + '?format=abridged&api_key={}&fdcIds='.format(API_KEY)
     url_cpy = url
     for index, row in survey_fndds_foods_df.iterrows():
-        # print(index, row['Name'], row['Age'])
         fdc_id = row['fdc_id']
         url += str(fdc_id) + ','
         # url = GET_FOOD_URL + str(fdc_id) + "?format=full?api_key={}".format(API_KEY)
         if index%20 == 0:
             response = requests.get(url[:-1])
+            print(response)
             food_list += response.json()
             url = url_cpy
     
@@ -81,6 +84,6 @@ def generate_cleaned_food_data():
 
 
 
-# get_data()
+get_data()
 generate_nutrition_food_data()
 generate_cleaned_food_data()
