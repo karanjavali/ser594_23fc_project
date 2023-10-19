@@ -17,7 +17,7 @@ def scatter_plot_distribution(code1, code2, number):
     code2_unit = nutrient_units[code2]
 
 
-    plt.scatter(code1_content, code2_content, alpha=0.7, cmap='viridis', edgecolors='k', linewidths=1.5)
+    plt.scatter(code1_content, code2_content, alpha=0.7, edgecolors='k', linewidths=1.5)
     plt.xlabel(nutrient_codes[code1] + '(in {})'.format(code1_unit))
     plt.ylabel(nutrient_codes[code2] + '(in {})'.format(code2_unit))
     plt.title('Nutrient pair scatterplot')
