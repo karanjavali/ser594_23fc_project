@@ -1,5 +1,5 @@
 
-import requests, csv, json
+import requests, json
 import pandas as pd
 GET_FOOD_URL = 'https://api.nal.usda.gov/fdc/v1/food/'
 API_KEY = 'gpCPrg1Vk7TLjDQ5PrDb7glFI4nAgK3vkiIl28Rg'
@@ -14,7 +14,6 @@ def get_data():
     for index, row in survey_fndds_foods_df.iterrows():
         fdc_id = row['fdc_id']
         url += str(fdc_id) + ','
-        # url = GET_FOOD_URL + str(fdc_id) + "?format=full?api_key={}".format(API_KEY)
         if index%20 == 0:
             response = requests.get(url[:-1])
             print(response)
