@@ -1,4 +1,4 @@
-1. IngriGen - The ingredient picker
+1. Title - IngriGen - The Ingredient Picker
 2. Author - Karan Navin Javali 
 3. Date of submission - 10/18/2023
 
