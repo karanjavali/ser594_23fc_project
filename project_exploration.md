@@ -17,7 +17,7 @@ wweia_category_number - Unique Identification number for WWWEIA food category to
 start_date - Start date indicates time period corresponding to WWWEIA data
 end_date - End date indicates time period corresponding to WWWEIA data
 
-**Dataset File Hash(es):** edf3db086237e679e1026b67ece932d4
+**Dataset File Hash(es):** data_original/survey_fndds_food.csv - edf3db086237e679e1026b67ece932d4
 
 ## Interpretable Records
 ### Record 1
