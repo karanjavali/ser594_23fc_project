@@ -2,22 +2,23 @@ import matplotlib.pyplot as plt
 import json
 import sys
 
-def protein_cabs_distribution():
+def scatter_plot_distribution(code1, code2, number):
     with open("./data_processed/nutrient_food_data.json", "r") as file:
         nutrient_data = json.load(file)
+    with open("./data_processed/nutrient_codes.json", "r") as file:
+        nutrient_codes = json.load(file)
+        
 
-    protein_code = '203'
-    carbohydrates_code = '205'
-
-    protein_content = [n['amount'] for n in nutrient_data[protein_code]]
-    carb_content = [n['amount'] for n in nutrient_data[carbohydrates_code]]
-
-    plt.scatter(protein_content, carb_content, color='r', marker='o')
-    plt.xlabel('Carbohydrates')
-    plt.ylabel('Protein')
-    plt.title('Protein-Carbohydrate distribution per 100 gm of ingredient')
+    code1_content = [n['amount'] for n in nutrient_data[code1]]
+    code1_unit = nutrient_data[code1][0]['unitName']
+    code2_content = [n['amount'] for n in nutrient_data[code2]]
+    code2_unit = nutrient_data[code2][0]['unitName']
+    plt.scatter(code1_content, code2_content, color='r', marker='o')
+    plt.xlabel(nutrient_codes[code1] + '(in {})'.format(code1_unit))
+    plt.ylabel(nutrient_codes[code2] + '(in {})'.format(code2_unit))
+    plt.title('Nutrient pair scatterplot')
     plt.grid(False) 
-    # plt.savefig('hw03_javali_image2scatterplot.png')
+    plt.savefig('visuals/scatter_{}.png'.format(number))
     plt.show()
 
 def calculate_statistics(nutrient_id):
@@ -85,3 +86,7 @@ if __name__ == "__main__":
     
     with open("./data_processed/summary.txt", 'w') as file:
         file.write(output)
+    
+    scatter_plot_distribution('203','205', 1)
+    scatter_plot_distribution('205','208', 2)
+    scatter_plot_distribution('208','203', 3)
