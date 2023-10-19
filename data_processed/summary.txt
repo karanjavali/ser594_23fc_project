@@ -1,0 +1,26 @@
+Qualitative Feature - Nutrition occurence in different ingredients
+Quantitative features - Protein content(in grams), Total Carbohydrates (in grams), Total Calories (in KCAL)
+
+
+Protein content statistics
+Min - 0.0 G
+Max - 78.1 G
+Median - 6.04 G
+
+Carbohydrate content statistics
+Min - 0.0 G
+Max - 100 G
+Median - 13.9 G
+
+Calories content statistics
+Min - 0.0 KCAL
+Max - 902 KCAL
+Median - 165 KCAL
+
+Nutrient occurence statistics:
+ 
+Number of categories(nutrients) - 65
+Max occuring category - Water
+Number of occurences - 5603
+Min occuring category - Alcohol, ethyl
+Number of occurences - 91

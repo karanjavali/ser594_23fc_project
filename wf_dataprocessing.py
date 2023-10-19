@@ -51,10 +51,10 @@ def generate_nutrition_food_data():
             nutrient_food_data[nutrient_number].append(obj)
             nutrient_codes[nutrient_number] = nutrient_name
 
-    with open("./data_processing/nutrient_food_data.json", "w") as file:
+    with open("./data_processed/nutrient_food_data.json", "w") as file:
         json.dump(nutrient_food_data, file, indent=4)
     
-    with open("./data_processing/nutrient_codes.json", "w") as file:
+    with open("./data_processed/nutrient_codes.json", "w") as file:
         json.dump(nutrient_codes, file, indent=4)
 
 def generate_cleaned_food_data():
@@ -69,7 +69,7 @@ def generate_cleaned_food_data():
         obj['nutrients'] = food['foodNutrients']
         food_data[food['fdcId']] = obj
     
-    with open("./data_processing/food_data.json", "w") as file:
+    with open("./data_processed/food_data.json", "w") as file:
         json.dump(food_data, file, indent=4)
 
 
