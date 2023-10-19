@@ -81,8 +81,11 @@ def generate_cleaned_food_data():
     with open("./data_processed/food_id_name.json", "w") as file:
         json.dump(food_id_name, file, indent=4)
 
+def main():
+    get_data()
+    generate_nutrition_food_data()
+    generate_cleaned_food_data()
 
 
-get_data()
-generate_nutrition_food_data()
-generate_cleaned_food_data()
+if __name__ == "__main__":
+    main()

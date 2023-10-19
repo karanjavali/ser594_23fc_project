@@ -122,8 +122,7 @@ def create_correlations():
     correlation_matrix = df.corr()
     correlation_matrix.to_csv("./data_processed/correlations.txt", sep='\t')
 
-if __name__ == "__main__":
-    
+def main():
     output = 'Qualitative Feature - Nutrition occurence in different ingredients\nQuantitative features - Protein content(in grams), Total Carbohydrates (in grams), Total Calories (in KCAL), Total Fat (in grams)\n\n'
     nutrient_codes = ['203', '205', '208', '204'] # Protein, Carbohydrates, Calories, Fat
     nutrients_chosen = ['Protein', 'Carbohydrate', 'Calories', 'Fat']
@@ -154,3 +153,7 @@ if __name__ == "__main__":
     scatter_plot_distribution('205','204', 5)
     scatter_plot_distribution('208','204', 6)
     plot_histogram()
+
+
+if __name__ == "__main__":
+    main()
