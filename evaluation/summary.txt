@@ -1,0 +1,9 @@
+Evaluation Summary
+Random Forest Model Mean Squared Error: 1.0559766883679655
+Random Forest Model R-squared value: 0.9908358912483692
+Decision Tree Regressor Model Mean Squared Error: 2.0364147486160538
+Decision Tree Regressor Model R-squared value: 0.9823273312514267
+Gradient Boosting Regressor Model Mean Squared Error: 2.1048803018665767
+Gradient Boosting Regressor Model R-squared value: 0.9817331649382498
+SVM with RBF Kernel Model Mean Squared Error: 10.638270574996639
+SVM with RBF Kernel Model R-squared value: 0.9076776319473335
