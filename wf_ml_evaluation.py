@@ -98,6 +98,6 @@ def evaluate_mse_and_r2():
     with open("./evaluation/summary.txt", 'w') as file:
         file.write(evaluation_result)
 
-# wf_ml_training.train_models()
-# evaluate_mse_and_r2()
+wf_ml_training.train_models()
+evaluate_mse_and_r2()
 wf_ml_prediction.predict_output()
