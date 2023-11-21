@@ -41,20 +41,48 @@ The predicted fat content is 6.43 gm. The Random Forest model considers the inte
 ### Feature B
 **Feature:** Carbohydrates
 
-**Justification:** Based on the scatter plot (Carbohydrate vs Lipid), the 2 have inverse relationship to a certain extent if one of them reaches high values. Hence this could be an indicator that high carb foods will have low fat and low carb foods will have high amounts of fat.
+**Justification:** Based on the scatter plot (Carbohydrate vs Lipid), the 2 have a non linear inverse relationship to a certain extent if one of them reaches high values. Hence this could be an indicator that high carb foods will have low fat and low carb foods will have high amounts of fat. 
 
 ## Experiments 
 ### Varying A
-**Prediction Trend Seen:** TODO
+**Prediction Trend Seen:**
+High calories value input - To predict the fat content (in gm) of food with nutrition value of 20 kcal, 30 gm protein, and 30 gm carbohydrates.
+Using Random Forest Model -  0.31770000000000015  gm
+
+Low calories value input - To predict the fat content (in gm) of food with nutrition value of 600 kcal, 30 gm protein, and 30 gm carbohydrates.
+Using Random Forest Model -  50.977999999999994  gm
+
+As mentioned above, the fat content increases with increase in calorie content.
 
 ### Varying B
-**Prediction Trend Seen:** TODO
+**Prediction Trend Seen:**
+
+High calories value input - To predict the fat content (in gm) of food with nutrition value of 400 kcal, 10 gm protein, and 85 gm carbohydrates.
+Using Random Forest Model -  3.6326999999999963  gm
+
+
+Low calories value input - To predict the fat content (in gm) of food with nutrition value of 400 kcal, 10 gm protein, and 2 gm carbohydrates.
+Using Random Forest Model -  33.82199999999998  gm
+
+As mentioned above, the values inversely change.
 
 ### Varying A and B together
-**Prediction Trend Seen:** TODO
+**Prediction Trend Seen:**
+High calories and high carbohydrates value input - To predict the fat content (in gm) of food with nutrition value of 600 kcal, 30 gm protein, and 85 gm carbohydrates.
+Using Random Forest Model -  33.17799999999997  gm
+
+Low calories and low carbohydrates value input - To predict the fat content (in gm) of food with nutrition value of 20 kcal, 30 gm protein, and 2 gm carbohydrates.
+Using Random Forest Model -  0.5424000000000003  gm
+
+When both increase, the fat content increases and vice versa. The increase (caused by calories) is greater than the decrease (caused by carbohydrates)
 
 
 ### Varying A and B inversely
-**Prediction Trend Seen:** TODO
+**Prediction Trend Seen:**
+High calories and low carbohydrates value input - To predict the fat content (in gm) of food with nutrition value of 600 kcal, 30 gm protein, and 2 gm carbohydrates.
+Using Random Forest Model -  57.17399999999995  gm
 
-(duplicate above as many times as needed; remove this line when done)
+Low calories and high carbohydrates value input - To predict the fat content (in gm) of food with nutrition value of 20 kcal, 30 gm protein, and 85 gm carbohydrates.
+Using Random Forest Model -  0.31770000000000015  gm
+
+Varying the features inversely causes dramatic change in fat content. When increasing calorie content and reducing carbohydrates, the increase is caused from both features and vice versa.
