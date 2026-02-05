@@ -1,4 +1,2 @@
 ﻿# Introduction
-This repository contains files for the individual course project in SER594: Data Science for Software Engineers (2023) created by knjavali for partial fulfillment of the course requirements.
-
-At this time, this project has not been cleared by the course staff (R. Acuna) for public release, and must be kept within a private repository.
+IngriGen, a tool for ingredient selection, integrates nutrition data analysis and machine learning. This project synthesizes insights from the food nutrition data, mapping different relationships between the macros selected and using them to gain new insights and predictions. By utilizing the USDA National Nutrient Database, IngriGen aims to inspire new recipes tailored to specific dietary needs, exploring the relationships between ingredients and nutritional goals, one of the ways being by predicting the fat content of food. Fat is an essential nutrient required by the human body, but in limited amounts. While trying to achieve body goals, it is important to note the fat content intake to prevent any health issues.
