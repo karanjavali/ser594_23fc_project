@@ -2,6 +2,8 @@
 
 IngriGen is a machine learning project that analyzes large-scale food nutrition data to support ingredient selection and recipe creation based on dietary goals. The system predicts fat content using macronutrient information (calories, carbohydrates, protein) and applies data-driven insights to nutrition planning.
 
+As a part of my project, I had compiled my findings in a research paper (not published anywhere): /IngriGen - Report.pdf
+
 # 🔍 What This Project Does
 
 Processes nutrition data from the USDA FoodData Central (FNDDS) dataset
